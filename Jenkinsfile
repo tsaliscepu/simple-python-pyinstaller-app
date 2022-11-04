@@ -21,6 +21,11 @@ node{
 			sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
 			junit 'test-reports/results.xml'
 		}
+		
+	        stage('Manual Approval'){
+        	input message: 'Lanjutkan ke tahap Deploy?'
+        	}
+		
 	}
 	
 	stage('Deploy') {
