@@ -32,7 +32,7 @@ node{
 		
 		checkout scm
 		sh 'docker run --rm -v /var/jenkins_home/workspace/submission-cicd-pipeline-tsaliscepu/sources:/src cdrx/pyinstaller-linux:python2 \'pyinstaller -F add2vals.py\''
-		archiveArtifacts artifacts: 'sources/add2vals.py', followSymlinks: false
+		archiveArtifacts artifacts: '/sources/dist/add2vals', followSymlinks: false
 		sh 'docker run --rm -v /var/jenkins_home/workspace/submission-cicd-pipeline-tsaliscepu/sources:/src cdrx/pyinstaller-linux:python2 \'rm -rf build dist\''
 		sleep time: 1, unit: 'MINUTES'
 	}
